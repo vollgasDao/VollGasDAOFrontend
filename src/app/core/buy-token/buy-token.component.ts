@@ -1,9 +1,6 @@
-import { MyContract } from './../services/contracts/contract.service';
-import { MetaMaskProvider } from './../services/metaMask.service';
 import { DataService } from './../services/data.service';
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-
 @Component({
     selector: 'app-buy-token',
     templateUrl: './buy-token.component.html',
@@ -23,11 +20,7 @@ export class BuyTokenComponent implements OnInit {
     public paypackEther: number;
     public avgPriceToString: string;
 
-    constructor(
-        private data: DataService
-    ) // private metaMask: MetaMaskProvider,
-    // private contract: MyContract
-    {}
+    constructor(private data: DataService) {}
 
     async ngOnInit() {
         await this.getAvgGasPrice();
@@ -55,7 +48,6 @@ export class BuyTokenComponent implements OnInit {
     }
 
     public buyToken() {
-        // console.log(this.metaMask);
     }
 
     public redeemToken() {}

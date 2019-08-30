@@ -16,14 +16,14 @@ export class MetaMaskProvider extends ethers.providers.Web3Provider {
         return this._enabled.getValue();
     }
 
-    set enableds(isEnabled: boolean) {
+    set enabled(isEnabled: boolean) {
         this._enabled.next(isEnabled);
     }
 
     public async enable() {
         if (!this.enabled) {
             const [address] = await this._web3Provider.enable();
-            this.enableds = !!address;
+            this.enabled = !!address;
         }
     }
 }
